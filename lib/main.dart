@@ -4,10 +4,12 @@ import 'package:bead_beauty/services/productservice.dart';
 import 'package:bead_beauty/services/reviewservice.dart';
 import 'package:bead_beauty/widgets/cartpage/cartitem.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
   runApp(
     MultiProvider(
       providers: [
