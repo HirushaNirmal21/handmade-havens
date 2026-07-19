@@ -26,6 +26,7 @@ class _ProductCardState extends State<ProductCard> {
     return Consumer<CartController>(
       builder: (context, cartController, child) {
         int actualStock = widget.product.stockQuantity;
+       
 
         return InkWell(
           onTap: () {
