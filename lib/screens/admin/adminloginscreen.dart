@@ -10,7 +10,7 @@ class AdminLoginScreen extends StatefulWidget {
 
 class _AdminLoginScreenState extends State<AdminLoginScreen> {
   final TextEditingController _passcodeController = TextEditingController();
-  final String _correctPasscode = "Timashi1206@";
+  final String _correctPasscode = "20181010";
 
   void _login() {
     if (_passcodeController.text == _correctPasscode) {
