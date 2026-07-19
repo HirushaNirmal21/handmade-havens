@@ -11,6 +11,7 @@ class AdminLoginScreen extends StatefulWidget {
 
 class _AdminLoginScreenState extends State<AdminLoginScreen> {
   final TextEditingController _passcodeController = TextEditingController();
+
   final String _correctPasscode = dotenv.env['ADMIN_PASSWORD'] ?? '';
 
   void _login() {
