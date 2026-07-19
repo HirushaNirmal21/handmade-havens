@@ -9,7 +9,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: ".env").catchError((e) {
+    print("Env file not found, skipping...");
+  });
   runApp(
     MultiProvider(
       providers: [
