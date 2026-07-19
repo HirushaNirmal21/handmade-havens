@@ -5,16 +5,35 @@ Widget buildMeetTheMaker(BuildContext context) {
   bool isMobile = screenWidth < 800;
 
   List<Widget> contents = [
-    ClipRRect(
-      borderRadius: BorderRadius.circular(30),
-      child: Image.asset(
-        'assets/meet.jpeg',
-        width: isMobile ? double.infinity : 600,
-        height: 350,
-        fit: BoxFit.cover,
-      ),
-    ),
+    // මෙන්න මේ කොටස තමයි වෙනස් කළේ - SingleChildScrollView එකක් එකතු කළා
+    isMobile
+        ? SizedBox(
+            height: 350,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: Image.asset(
+                  'assets/meet.jpeg',
+                  height: 350,
+                  fit:
+                      BoxFit.contain, // පින්තූරේ පූර්ණ ලෙස පේන්න contain දැම්මා
+                ),
+              ),
+            ),
+          )
+        : ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Image.asset(
+              'assets/meet.jpeg',
+              width: 600,
+              height: 350,
+              fit: BoxFit.cover,
+            ),
+          ),
+
     const SizedBox(width: 40, height: 20),
+
     Expanded(
       flex: isMobile ? 0 : 1,
       child: Column(
@@ -31,7 +50,7 @@ Widget buildMeetTheMaker(BuildContext context) {
           ),
           const SizedBox(height: 15),
           Text(
-            "Hi, I'm Timashi Manawadu,Every piece at Bead Beauty is lovingly handcrafted to bring beauty, elegance, and joy into your everyday life. Inspired by soft colors, delicate flowers, and timeless designs, each creation is made with patience and attention to every detail. Thank you for supporting handmade art and being part of the Bead Beauty journey. 💖",
+            "Hi, I'm Timashi Manawadu, Every piece at Bead Beauty is lovingly handcrafted to bring beauty, elegance, and joy into your everyday life. Inspired by soft colors, delicate flowers, and timeless designs, each creation is made with patience and attention to every detail. Thank you for supporting handmade art and being part of the Bead Beauty journey. 💖",
             style: TextStyle(
               fontSize: 16,
               color: Colors.white.withOpacity(0.8),

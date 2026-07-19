@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
 import 'package:bead_beauty/models/productmodel.dart';
-import 'package:bead_beauty/screens/admin/adminloginscreen.dart';
 import 'package:bead_beauty/screens/mainpages/aboutusscreen.dart';
 import 'package:bead_beauty/screens/mainpages/cartscreen.dart';
 import 'package:bead_beauty/services/productservice.dart';
@@ -11,7 +10,7 @@ import 'package:bead_beauty/widgets/homepage/catogery.dart';
 import 'package:bead_beauty/widgets/homepage/drawer.dart';
 import 'package:bead_beauty/widgets/homepage/footer.dart';
 import 'package:bead_beauty/widgets/homepage/herosection.dart';
-import 'package:bead_beauty/widgets/cartpage/meet.dart';
+import 'package:bead_beauty/widgets/homepage/meet.dart';
 import 'package:bead_beauty/widgets/homepage/productcard.dart';
 import 'package:bead_beauty/widgets/cartpage/reviewinster.dart';
 import 'package:flutter/material.dart';
@@ -132,38 +131,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
-                      child: Text(
-                        "✨ Handmade Haven ✨",
-
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: isMobile ? 24 : 32,
-                          letterSpacing: 1,
-                          shadows: const [
-                            Shadow(
-                              color: Colors.black26,
-                              blurRadius: 8,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onDoubleTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AdminLoginScreen(),
+                      child: Center(
+                        child: Text(
+                          "✨ Handmade Haven ✨",
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: isMobile ? 24 : 32,
+                            letterSpacing: 1,
+                            shadows: const [
+                              Shadow(
+                                color: Colors.black26,
+                                blurRadius: 8,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        color: Colors.transparent,
+                        ),
                       ),
                     ),
                   ],

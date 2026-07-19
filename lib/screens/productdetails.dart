@@ -134,7 +134,6 @@ class ProductDetailScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -146,15 +145,14 @@ class ProductDetailScreen extends StatelessWidget {
                   color: Color(0xFFFF1493),
                 ),
               ),
-
-              // ⚡ Detail Page Stock Badge
-              _buildDetailedPageStockBadge(stock),
+              const SizedBox(width: 10),
+              // මෙතන තමයි වෙනස් කළේ - Flexible මගින් overflow එක වැළකේ
+              Flexible(child: _buildDetailedPageStockBadge(stock)),
             ],
           ),
           const SizedBox(height: 16),
           const Divider(),
           const SizedBox(height: 16),
-
           const Text(
             "Description",
             style: TextStyle(
@@ -173,10 +171,8 @@ class ProductDetailScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 32),
-
           Row(
             children: [
-              // 1. Add to Cart Button
               Expanded(
                 child: OutlinedButton(
                   onPressed: isAvailable
@@ -219,8 +215,6 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-
-              // 2. Buy Now Button
               Expanded(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(

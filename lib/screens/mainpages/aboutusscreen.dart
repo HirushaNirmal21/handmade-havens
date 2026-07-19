@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 import 'dart:ui_web' as ui_web;
 import 'package:bead_beauty/models/rolemodel.dart';
+import 'package:bead_beauty/screens/admin/adminloginscreen.dart';
 import 'package:bead_beauty/utils/backgroundgradient.dart';
 import 'package:bead_beauty/widgets/aboutus/rolecard.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,18 @@ class AboutUsScreen extends StatefulWidget {
 }
 
 class _AboutUsScreenState extends State<AboutUsScreen> {
+  int _tapCount = 0;
+  void _handleAdminTap(BuildContext context) {
+    _tapCount++;
+    if (_tapCount == 7) {
+      _tapCount = 0;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const AdminLoginScreen()),
+      );
+    }
+  }
+
   final String mapEmbedUrl =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31697.585501755194!2d80.08985177431637!3d6.130843657375269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae1770000000001%3A0x89e09d571d87e07f!2sHikkaduwa!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk";
   late final WebViewController _mobileMapController;
@@ -67,6 +80,12 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
           "About Us ✨",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        actions: [
+          GestureDetector(
+            onTap: () => _handleAdminTap(context),
+            child: Container(width: 40, height: 40, color: Colors.transparent),
+          ),
+        ],
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -208,9 +227,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
             color: Colors.white.withOpacity(0.15), // Semi-transparent white
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: Colors.white.withOpacity(
-                0.25,
-              ), // Glass එකේ දිලිසෙන සුදු මායිම
+              color: Colors.white.withOpacity(0.25),
               width: 1.5,
             ),
           ),

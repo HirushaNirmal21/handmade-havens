@@ -55,167 +55,99 @@ class _ProductCardState extends State<ProductCard> {
                   ),
                 ],
               ),
-              child: Stack(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: AnimatedScale(
-                              scale: isHovered ? 1.08 : 1.0,
-                              duration: const Duration(milliseconds: 300),
-                              child:
-                                  widget.product.imageUrl != null &&
-                                      widget.product.imageUrl!.isNotEmpty
-                                  ? Image.network(
-                                      widget.product.imageUrl!,
-                                      fit: BoxFit.cover,
-                                      width: double.infinity,
-                                    )
-                                  : Container(
-                                      color: Colors.white10,
-                                      child: const Icon(
-                                        Icons.image,
-                                        color: Colors.white30,
-                                      ),
-                                    ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.product.name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 15,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(
+                        8.0,
+                      ), // Padding slightly reduced
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child:
+                            widget.product.imageUrl != null &&
+                                widget.product.imageUrl!.isNotEmpty
+                            ? Image.network(
+                                widget.product.imageUrl!,
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                              )
+                            : Container(
+                                color: Colors.white10,
+                                child: const Icon(
+                                  Icons.image,
+                                  color: Colors.white30,
+                                ),
                               ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const SizedBox(height: 8),
-
-                            _buildStockIndicator(actualStock),
-
-                            const SizedBox(height: 10),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                //  Price
-                                Text(
-                                  "Rs. ${widget.product.price.toStringAsFixed(2)}",
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-
-                                //  Like Section
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    IconButton(
-                                      padding: EdgeInsets.zero,
-                                      constraints: const BoxConstraints(),
-                                      icon: Icon(
-                                        widget.product.isLiked
-                                            ? Icons.favorite
-                                            : Icons.favorite_border,
-                                        color: widget.product.isLiked
-                                            ? Colors.red
-                                            : Colors.white70,
-                                      ),
-                                      onPressed: () {
-                                        cartController.toggleLikeProduct(
-                                          widget.product,
-                                        );
-                                      },
-                                    ),
-                                    const SizedBox(width: 5),
-                                    Text(
-                                      "${widget.product.likeCount}",
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-
-                                InkWell(
-                                  onTap: actualStock > 0
-                                      ? () {
-                                          cartController.addToCart(
-                                            widget.product,
-                                          );
-                                          widget.onAddToCart();
-
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).clearSnackBars();
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                "✨ ${widget.product.name} added to cart!",
-                                              ),
-                                              backgroundColor:
-                                                  const Color.fromARGB(
-                                                    255,
-                                                    241,
-                                                    67,
-                                                    194,
-                                                  ),
-                                              duration: const Duration(
-                                                seconds: 2,
-                                              ),
-                                              behavior:
-                                                  SnackBarBehavior.floating,
-                                            ),
-                                          );
-                                        }
-                                      : null,
-                                  customBorder: const CircleBorder(),
-                                  child: Container(
-                                    height: 45,
-                                    width: 45,
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                      color: actualStock > 0
-                                          ? Colors.transparent
-                                          : Colors.white.withOpacity(0.05),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Center(
-                                      child: Icon(
-                                        Icons.shopping_cart,
-                                        color: actualStock > 0
-                                            ? Colors.white
-                                            : Colors.white38,
-                                        size: 24,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
                       ),
-                    ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.product.name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 4),
+                        _buildStockIndicator(actualStock),
+                        const SizedBox(height: 8),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            bool isSmall = constraints.maxWidth < 150;
+                            return isSmall
+                                ? Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Rs. ${widget.product.price.toStringAsFixed(2)}",
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                      _buildActionButtons(
+                                        cartController,
+                                        actualStock,
+                                      ),
+                                    ],
+                                  )
+                                : Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Flexible(
+                                        child: Text(
+                                          "Rs. ${widget.product.price.toStringAsFixed(2)}",
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      _buildActionButtons(
+                                        cartController,
+                                        actualStock,
+                                      ),
+                                    ],
+                                  );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -223,6 +155,51 @@ class _ProductCardState extends State<ProductCard> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildActionButtons(CartController cartController, int actualStock) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(minWidth: 30, minHeight: 30),
+          icon: Icon(
+            widget.product.isLiked ? Icons.favorite : Icons.favorite_border,
+            color: widget.product.isLiked ? Colors.red : Colors.white70,
+            size: 20,
+          ),
+          onPressed: () => cartController.toggleLikeProduct(widget.product),
+        ),
+        Text(
+          "${widget.product.likeCount}",
+          style: const TextStyle(color: Colors.white, fontSize: 12),
+        ),
+        const SizedBox(width: 4),
+        InkWell(
+          onTap: actualStock > 0
+              ? () {
+                  cartController.addToCart(widget.product);
+                  widget.onAddToCart();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("Added to cart!"),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                }
+              : null,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.shopping_cart,
+              color: actualStock > 0 ? Colors.white : Colors.white38,
+              size: 20,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
