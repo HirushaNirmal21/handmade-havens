@@ -107,7 +107,7 @@ Widget PageHerosection(
                   height: 350,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset('back.jpeg', fit: BoxFit.cover),
+                    child: Image.asset('assets/back.jpeg', fit: BoxFit.cover),
                   ),
                 ),
               ),
