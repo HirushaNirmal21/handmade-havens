@@ -67,9 +67,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/back.jpeg
-    - assets/images/contact1.jpeg
-    - assets/images/meet.jpeg
+    - assets/
+    
   
 
 

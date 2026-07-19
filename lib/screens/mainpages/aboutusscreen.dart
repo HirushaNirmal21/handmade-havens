@@ -24,13 +24,13 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
     TeamMember(
       name: "Timashi Manawadu",
       role: "Owner & Founder 💖",
-      imagePath: "images/contact1.jpeg",
+      imagePath: "contact1.jpeg",
       whatsappNumber: "94757209765",
     ),
     TeamMember(
       name: "Dilusha Manawadu",
       role: "Store Manager 📦",
-      imagePath: "images/contact2.jpeg",
+      imagePath: "contact2.jpeg",
       whatsappNumber: "94760399793",
     ),
   ];

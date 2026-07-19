@@ -46,7 +46,7 @@ Widget PageHerosection(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(
-                            'images/back.jpeg',
+                            'assets/back.jpeg',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -102,12 +102,13 @@ Widget PageHerosection(
             if (isDesktop) const SizedBox(width: 40),
 
             if (isDesktop)
-              SizedBox(
-                width: screenWidth * 0.36,
-                height: 350,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset('images/back.jpeg', fit: BoxFit.cover),
+              Expanded(
+                child: SizedBox(
+                  height: 350,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset('back.jpeg', fit: BoxFit.cover),
+                  ),
                 ),
               ),
           ],
