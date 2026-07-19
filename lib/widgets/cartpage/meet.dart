@@ -8,7 +8,7 @@ Widget buildMeetTheMaker(BuildContext context) {
     ClipRRect(
       borderRadius: BorderRadius.circular(30),
       child: Image.asset(
-        'meet.jpeg',
+        'assets/meet.jpeg',
         width: isMobile ? double.infinity : 600,
         height: 350,
         fit: BoxFit.cover,
