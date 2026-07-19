@@ -1,6 +1,6 @@
 import 'package:bead_beauty/screens/admin/admindashboardscreen.dart';
+import 'package:bead_beauty/widgets/cartpage/newoder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AdminLoginScreen extends StatefulWidget {
   const AdminLoginScreen({super.key});
@@ -12,7 +12,7 @@ class AdminLoginScreen extends StatefulWidget {
 class _AdminLoginScreenState extends State<AdminLoginScreen> {
   final TextEditingController _passcodeController = TextEditingController();
 
-  final String _correctPasscode = dotenv.env['ADMIN_PASSWORD'] ?? '';
+  final String _correctPasscode = AppConfig.adminPassword;
 
   void _login() {
     if (_passcodeController.text == _correctPasscode) {
