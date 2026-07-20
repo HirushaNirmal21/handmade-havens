@@ -84,7 +84,7 @@ class GlassTeamCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 12),
-                    // මෙන්න මේ InkWell එකට තමයි Flexible දැම්මේ
+
                     Flexible(
                       child: InkWell(
                         onTap: () => _launchWhatsApp(member.whatsappNumber),

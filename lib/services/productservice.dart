@@ -45,7 +45,6 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      // දැන් URL එක නිවැරදියි (POST /api/products)
       final response = await http.post(
         Uri.parse(apiBaseUrl),
         headers: {"Content-Type": "application/json"},

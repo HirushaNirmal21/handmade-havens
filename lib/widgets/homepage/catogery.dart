@@ -19,7 +19,10 @@ class Catogery extends StatelessWidget {
     final List<Widget> categoryChips = [
       _buildCategoryChip("All Items", selectedCategory == "All Items"),
       _buildCategoryChip("Bracelets", selectedCategory == "Bracelets"),
-      _buildCategoryChip("Necklaces", selectedCategory == "Necklaces"),
+      _buildCategoryChip(
+        "Rings Necklaces",
+        selectedCategory == "Rings Necklaces",
+      ),
       _buildCategoryChip(
         "Other Accessories",
         selectedCategory == "Other Accessories",

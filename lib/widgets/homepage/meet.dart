@@ -5,7 +5,6 @@ Widget buildMeetTheMaker(BuildContext context) {
   bool isMobile = screenWidth < 800;
 
   List<Widget> contents = [
-    // මෙන්න මේ කොටස තමයි වෙනස් කළේ - SingleChildScrollView එකක් එකතු කළා
     isMobile
         ? SizedBox(
             height: 350,
@@ -16,8 +15,7 @@ Widget buildMeetTheMaker(BuildContext context) {
                 child: Image.asset(
                   'assets/meet.jpeg',
                   height: 350,
-                  fit:
-                      BoxFit.contain, // පින්තූරේ පූර්ණ ලෙස පේන්න contain දැම්මා
+                  fit: BoxFit.contain,
                 ),
               ),
             ),

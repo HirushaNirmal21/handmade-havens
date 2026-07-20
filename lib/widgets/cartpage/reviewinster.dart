@@ -88,7 +88,6 @@ Widget buildReviewsAndInstagram(BuildContext context) {
   );
 }
 
-// Instagram Image Widget
 Widget _buildInstagramImage(String assetPath) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(15),

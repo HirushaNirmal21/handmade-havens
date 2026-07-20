@@ -246,7 +246,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           Container(decoration: const BoxDecoration(gradient: gradientColors)),
 
-          // ANIMATED BACKGROUND ELEMENTS
           AnimatedBuilder(
             animation: _animationController,
             builder: (context, child) {
@@ -306,7 +305,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                   const SizedBox(height: 30),
 
-                  // 📦 PRODUCT GRID SECTION
                   productProvider.isLoading
                       ? const Center(
                           child: Padding(

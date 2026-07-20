@@ -123,7 +123,7 @@ class CartController extends ChangeNotifier {
         _cartItems.removeAt(index);
       }
       notifyListeners();
-      _saveCartToDisk(); // 👈 සේව් කරනවා
+      _saveCartToDisk();
     }
   }
 

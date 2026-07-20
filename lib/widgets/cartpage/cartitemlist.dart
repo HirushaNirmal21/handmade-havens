@@ -52,7 +52,7 @@ Widget buildCartItemsList(CartController cart) {
                 ],
               ),
             ),
-            // Quantity Controls (+ / -)
+
             Row(
               children: [
                 IconButton(
@@ -80,7 +80,6 @@ Widget buildCartItemsList(CartController cart) {
                     if (!isStockLimitReached) {
                       cart.addToCart(item.product);
                     } else {
-                      // Stock එක ඉවර නම් Alert එකක් දෙනවා
                       ScaffoldMessenger.of(context).clearSnackBars();
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
