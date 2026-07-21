@@ -21,7 +21,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
   int _selectedSection = 0;
   final List<String> _categories = [
     "Bracelets",
-    "Rings Necklaces",
+    "Rings & Necklaces",
     "Other Accessories",
   ];
 
